@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans", sans-serif;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 0 10px;
+}
+
+.container {
+	width: 850px;
+	background: #fff;
+	display: flex;
+	gap: 70px;
+	align-items: flex-end;
+	padding: 60px 40px;
+	border-radius: 10px;
+}
+
+.hangman img {
+	min-width: 270px;
+}
+
+.hangman h1 {
+	font-size: 1.45rem;
+	margin-top: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.words {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+
+}
+
+.words .letter {
+	width: 28px;
+	font-size: 2rem;
+	font-weight: 600;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+	border-bottom: 3px solid #000;
+}
+
+.words .letter.guessed {
+	border-color: transparent;
+	margin: -40px 0 35px;
+}
+
+.game-box h4 {
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+
+.game-box h4 b {
+	font-weight: 600;
+}
+
+.game-box .incorrect b {
+	color: #ff0000;
+}
+
+.game-box .keyboard {
+	display: flex;
+	gap: 5px;
+	margin-top: 40px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+:where(.modal, .keyboard) button {
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background: #5E63BA;
+	border-radius: 4px;
+	text-transform: uppercase;
+}
+
+.keyboard button {
+	padding: 7px;
+	width: calc(100% / 9 - 5px);
+}
+
+.keyboard button[disabled] {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+:where(.modal, .keyboard) button:hover {
+	background: #8286c9;
+}
+
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	padding: 0 10px;
+	pointer-events: none;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.4);
+	transition: opacity 0.4s ease;
+}
+
+.modal.show {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.modal .content {
+	background: #fff;
+	max-width: 420px;
+	width: 100%;
+	text-align: center;
+	border-radius: 10px;
+	padding: 35px;
+}
+
+.modal h4 {
+	font-size: 1.53rem;
+}
+
+.modal p {
+	font-size: 1.15rem;
+	margin: 15px 0 30px;
+	font-weight: 500;
+}
+
+.modal p b {
+	color: #5E63BA;
+	font-weight: 600;
+}
+
+.modal button {
+	padding: 12px 23px;
+}
+
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		padding: 30px 15px;
+		align-items: center;
+	}
+
+	.hangman img {
+		min-width: 200px;
+	}
+
+	.hangman h1 {
+		display: none;
+	}
+}
